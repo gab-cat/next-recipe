@@ -15,7 +15,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
     const timer1 = setTimeout(() => setCurrentStep(1), 300);
     const timer2 = setTimeout(() => setCurrentStep(2), 800);
     const timer3 = setTimeout(() => setCurrentStep(3), 1500);
-    const timer4 = setTimeout(() => onComplete(), 2800);
+    const timer4 = setTimeout(() => onComplete(), 3000);
     
     return () => {
       clearTimeout(timer1);
@@ -195,7 +195,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
               initial={{ width: "0%" }}
               animate={{ width: currentStep >= 3 ? "100%" : "0%" }}
               transition={{ 
-                duration: 1.0,
+                duration: 0.7,
                 delay: 0.9,
                 ease: [0.4, 0, 0.2, 1]
               }}
