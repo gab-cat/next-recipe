@@ -1,0 +1,585 @@
+[
+  {
+    "id": "spaghetti-carbonara",
+    "name": "Classic Spaghetti Carbonara",
+    "ingredients": [
+      "400g spaghetti",
+      "200g pancetta or guanciale",
+      "4 large eggs",
+      "100g Pecorino Romano cheese, grated",
+      "2 cloves garlic",
+      "Black pepper",
+      "Salt"
+    ],
+    "instructions": [
+      "Bring a large pot of salted water to boil and cook spaghetti according to package directions",
+      "Cut pancetta into small cubes and cook in a large skillet until crispy",
+      "In a bowl, whisk together eggs, grated cheese, and black pepper",
+      "Drain pasta, reserving 1 cup of pasta water",
+      "Add hot pasta to the skillet with pancetta",
+      "Remove from heat and quickly stir in egg mixture, adding pasta water as needed",
+      "Serve immediately with additional cheese and black pepper"
+    ],
+    "cookingTime": "20 minutes",
+    "servings": 4,
+    "image": "https://images.unsplash.com/photo-1588013273468-315fd88ea34c?q=80&w=3538&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "chicken-tikka-masala",
+    "name": "Chicken Tikka Masala",
+    "ingredients": [
+      "1 lb boneless chicken, cubed",
+      "1 cup plain yogurt",
+      "2 tbsp tikka masala spice",
+      "1 onion, diced",
+      "3 cloves garlic, minced",
+      "1 tbsp ginger, grated",
+      "1 can tomato sauce",
+      "1 cup heavy cream",
+      "2 tbsp ghee or oil",
+      "Salt to taste",
+      "Fresh cilantro"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt and half the spices for 2 hours",
+      "Heat ghee in a large pan and cook marinated chicken until done",
+      "In the same pan, sauté onion, garlic, and ginger until fragrant",
+      "Add remaining spices and cook for 1 minute",
+      "Add tomato sauce and simmer for 10 minutes",
+      "Stir in cream and cooked chicken",
+      "Simmer for 5 more minutes and garnish with cilantro"
+    ],
+    "cookingTime": "45 minutes",
+    "servings": 6,
+    "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=3471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "chocolate-chip-cookies",
+    "name": "Classic Chocolate Chip Cookies",
+    "ingredients": [
+      "2¼ cups all-purpose flour",
+      "1 tsp baking soda",
+      "1 tsp salt",
+      "1 cup butter, softened",
+      "¾ cup granulated sugar",
+      "¾ cup brown sugar",
+      "2 large eggs",
+      "2 tsp vanilla extract",
+      "2 cups chocolate chips"
+    ],
+    "instructions": [
+      "Preheat oven to 375°F and line baking sheets with parchment",
+      "Mix flour, baking soda, and salt in a bowl",
+      "Cream butter and both sugars until fluffy",
+      "Beat in eggs and vanilla",
+      "Gradually mix in flour mixture",
+      "Stir in chocolate chips",
+      "Drop rounded tablespoons on baking sheets",
+      "Bake 9-11 minutes until golden brown"
+    ],
+    "cookingTime": "25 minutes",
+    "servings": 24,
+    "image": "https://images.unsplash.com/photo-1519682214708-973477a2529a?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "beef-stir-fry",
+    "name": "Beef and Vegetable Stir Fry",
+    "ingredients": [
+      "1 lb beef sirloin, sliced thin",
+      "2 tbsp soy sauce",
+      "1 tbsp cornstarch",
+      "2 tbsp vegetable oil",
+      "1 bell pepper, sliced",
+      "1 cup broccoli florets",
+      "1 carrot, julienned",
+      "2 cloves garlic, minced",
+      "1 tbsp ginger, grated",
+      "3 tbsp stir-fry sauce",
+      "Green onions for garnish"
+    ],
+    "instructions": [
+      "Marinate beef with soy sauce and cornstarch for 15 minutes",
+      "Heat oil in a wok or large skillet over high heat",
+      "Stir-fry beef until browned, then remove",
+      "Add vegetables and stir-fry for 3-4 minutes",
+      "Add garlic and ginger, cook 30 seconds",
+      "Return beef to pan with stir-fry sauce",
+      "Toss everything together and serve with rice"
+    ],
+    "cookingTime": "30 minutes",
+    "servings": 4,
+    "image": "https://images.unsplash.com/photo-1591745952765-071aa8677b2b?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "margherita-pizza",
+    "name": "Margherita Pizza",
+    "ingredients": [
+      "1 pizza dough ball",
+      "½ cup tomato sauce",
+      "8 oz fresh mozzarella, sliced",
+      "¼ cup Parmesan cheese",
+      "Fresh basil leaves",
+      "2 tbsp olive oil",
+      "Salt and pepper",
+      "Cornmeal for dusting"
+    ],
+    "instructions": [
+      "Preheat oven to 500°F with pizza stone if available",
+      "Roll out pizza dough on floured surface",
+      "Transfer to cornmeal-dusted pizza pan",
+      "Spread tomato sauce evenly, leaving border for crust",
+      "Add mozzarella slices and sprinkle Parmesan",
+      "Drizzle with olive oil and season with salt and pepper",
+      "Bake 10-12 minutes until crust is golden",
+      "Top with fresh basil before serving"
+    ],
+    "cookingTime": "25 minutes",
+    "servings": 2,
+    "image": "https://images.unsplash.com/photo-1598023696416-0193a0bcd302?q=80&w=3636&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "caesar-salad",
+    "name": "Classic Caesar Salad",
+    "ingredients": [
+      "2 heads romaine lettuce, chopped",
+      "½ cup Parmesan cheese, grated",
+      "1 cup croutons",
+      "3 cloves garlic",
+      "2 anchovy fillets",
+      "1 egg yolk",
+      "2 tbsp lemon juice",
+      "1 tsp Dijon mustard",
+      "⅓ cup olive oil",
+      "Black pepper"
+    ],
+    "instructions": [
+      "Wash and chop romaine lettuce, then chill",
+      "Make croutons by toasting cubed bread with garlic and oil",
+      "For dressing: mash garlic and anchovies into a paste",
+      "Whisk in egg yolk, lemon juice, and mustard",
+      "Slowly drizzle in olive oil while whisking",
+      "Toss lettuce with dressing",
+      "Top with Parmesan, croutons, and black pepper"
+    ],
+    "cookingTime": "15 minutes",
+    "servings": 4,
+    "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "salmon-teriyaki",
+    "name": "Teriyaki Glazed Salmon",
+    "ingredients": [
+      "4 salmon fillets",
+      "¼ cup soy sauce",
+      "2 tbsp honey",
+      "2 tbsp rice vinegar",
+      "1 tbsp cornstarch",
+      "2 cloves garlic, minced",
+      "1 tsp ginger, grated",
+      "1 tbsp sesame oil",
+      "Sesame seeds",
+      "Green onions for garnish"
+    ],
+    "instructions": [
+      "Pat salmon fillets dry and season with salt",
+      "Mix soy sauce, honey, vinegar, and cornstarch for glaze",
+      "Heat sesame oil in a large skillet over medium-high heat",
+      "Cook salmon skin-side up for 4-5 minutes",
+      "Flip and cook 3-4 minutes more",
+      "Add garlic and ginger to pan, cook 30 seconds",
+      "Pour glaze over salmon and cook until thickened",
+      "Garnish with sesame seeds and green onions"
+    ],
+    "cookingTime": "20 minutes",
+    "servings": 4,
+    "image": "https://images.unsplash.com/photo-1735315050688-010b5b548054?q=80&w=3685&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "vegetable-curry",
+    "name": "Mixed Vegetable Curry",
+    "ingredients": [
+      "2 tbsp coconut oil",
+      "1 onion, diced",
+      "3 cloves garlic, minced",
+      "1 tbsp ginger, grated",
+      "2 tbsp curry powder",
+      "1 can coconut milk",
+      "2 potatoes, cubed",
+      "1 cup green beans",
+      "1 bell pepper, diced",
+      "1 cup spinach",
+      "Salt to taste",
+      "Fresh cilantro"
+    ],
+    "instructions": [
+      "Heat coconut oil in a large pot over medium heat",
+      "Sauté onion until translucent, about 5 minutes",
+      "Add garlic, ginger, and curry powder, cook 1 minute",
+      "Pour in coconut milk and bring to a simmer",
+      "Add potatoes and cook 10 minutes",
+      "Add green beans and bell pepper, cook 8 minutes",
+      "Stir in spinach until wilted",
+      "Season with salt and garnish with cilantro"
+    ],
+    "cookingTime": "35 minutes",
+    "servings": 6,
+    "image": "https://images.unsplash.com/photo-1643786661490-966f1877effa?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "banana-bread",
+    "name": "Moist Banana Bread",
+    "ingredients": [
+      "3 ripe bananas, mashed",
+      "⅓ cup melted butter",
+      "¾ cup sugar",
+      "1 egg, beaten",
+      "1 tsp vanilla extract",
+      "1 tsp baking soda",
+      "Pinch of salt",
+      "1½ cups all-purpose flour",
+      "½ cup chopped walnuts (optional)"
+    ],
+    "instructions": [
+      "Preheat oven to 350°F and grease a loaf pan",
+      "Mash bananas in a large mixing bowl",
+      "Mix in melted butter with mashed bananas",
+      "Add sugar, egg, and vanilla, mix well",
+      "Sprinkle baking soda and salt over mixture",
+      "Add flour and mix until just combined",
+      "Fold in walnuts if using",
+      "Pour into loaf pan and bake 60-65 minutes"
+    ],
+    "cookingTime": "75 minutes",
+    "servings": 8,
+    "image": "https://images.unsplash.com/photo-1497534547324-0ebb3f052e88?q=80&w=3500&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "chicken-parmesan",
+    "name": "Chicken Parmesan",
+    "ingredients": [
+      "4 chicken breasts, pounded thin",
+      "1 cup flour",
+      "2 eggs, beaten",
+      "2 cups breadcrumbs",
+      "1 cup Parmesan cheese, grated",
+      "2 cups marinara sauce",
+      "2 cups mozzarella cheese, shredded",
+      "¼ cup olive oil",
+      "Salt and pepper",
+      "Fresh basil"
+    ],
+    "instructions": [
+      "Preheat oven to 425°F",
+      "Set up breading station: flour, eggs, breadcrumbs mixed with Parmesan",
+      "Season chicken with salt and pepper",
+      "Dredge chicken in flour, then egg, then breadcrumb mixture",
+      "Heat oil in large oven-safe skillet",
+      "Cook chicken 3-4 minutes per side until golden",
+      "Top with marinara sauce and mozzarella",
+      "Bake 15-20 minutes until cheese melts and chicken reaches 165°F"
+    ],
+    "cookingTime": "40 minutes",
+    "servings": 4,
+    "image": "https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "greek-salad",
+    "name": "Traditional Greek Salad",
+    "ingredients": [
+      "3 tomatoes, cut in wedges",
+      "1 cucumber, sliced thick",
+      "1 red onion, sliced thin",
+      "1 green bell pepper, sliced",
+      "½ cup Kalamata olives",
+      "200g feta cheese, cubed",
+      "¼ cup olive oil",
+      "2 tbsp red wine vinegar",
+      "1 tsp dried oregano",
+      "Salt and pepper"
+    ],
+    "instructions": [
+      "Cut all vegetables into bite-sized pieces",
+      "Combine tomatoes, cucumber, onion, and bell pepper in large bowl",
+      "Add olives and feta cheese",
+      "Whisk together olive oil, vinegar, oregano, salt, and pepper",
+      "Pour dressing over salad",
+      "Toss gently to combine",
+      "Let sit 10 minutes before serving to allow flavors to meld"
+    ],
+    "cookingTime": "15 minutes",
+    "servings": 4,
+    "image": "https://plus.unsplash.com/premium_photo-1699881082623-772103078bf1?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "beef-tacos",
+    "name": "Ground Beef Tacos",
+    "ingredients": [
+      "1 lb ground beef",
+      "1 packet taco seasoning",
+      "¾ cup water",
+      "8 taco shells",
+      "1 cup lettuce, shredded",
+      "2 tomatoes, diced",
+      "1 cup cheddar cheese, shredded",
+      "½ cup sour cream",
+      "¼ cup red onion, diced",
+      "Salsa",
+      "Lime wedges"
+    ],
+    "instructions": [
+      "Brown ground beef in large skillet over medium-high heat",
+      "Drain excess fat",
+      "Add taco seasoning and water, simmer 5 minutes",
+      "Warm taco shells according to package directions",
+      "Prepare all toppings in separate bowls",
+      "Fill each taco shell with seasoned beef",
+      "Top with desired toppings",
+      "Serve with lime wedges and salsa"
+    ],
+    "cookingTime": "20 minutes",
+    "servings": 4,
+    "image": "https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?q=80&w=3588&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "mushroom-risotto",
+    "name": "Creamy Mushroom Risotto",
+    "ingredients": [
+      "1½ cups Arborio rice",
+      "6 cups warm chicken broth",
+      "½ lb mixed mushrooms, sliced",
+      "1 onion, finely diced",
+      "3 cloves garlic, minced",
+      "½ cup white wine",
+      "½ cup Parmesan cheese",
+      "3 tbsp butter",
+      "2 tbsp olive oil",
+      "Salt and pepper",
+      "Fresh parsley"
+    ],
+    "instructions": [
+      "Heat broth in a separate pot and keep warm",
+      "Sauté mushrooms in olive oil until golden, set aside",
+      "In same pan, cook onion until translucent",
+      "Add garlic and rice, stir for 2 minutes",
+      "Add wine and stir until absorbed",
+      "Add warm broth one ladle at a time, stirring constantly",
+      "Continue until rice is creamy and tender, about 20 minutes",
+      "Stir in mushrooms, butter, and Parmesan"
+    ],
+    "cookingTime": "45 minutes",
+    "servings": 6,
+    "image": "https://plus.unsplash.com/premium_photo-1694850980302-f568e6de0f6d?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "apple-pie",
+    "name": "Classic Apple Pie",
+    "ingredients": [
+      "2 pie crusts",
+      "8 apples, peeled and sliced",
+      "¾ cup sugar",
+      "2 tbsp flour",
+      "1 tsp cinnamon",
+      "¼ tsp nutmeg",
+      "¼ tsp salt",
+      "2 tbsp butter",
+      "1 egg for wash",
+      "1 tbsp sugar for sprinkling"
+    ],
+    "instructions": [
+      "Preheat oven to 425°F",
+      "Line pie pan with bottom crust",
+      "Mix sliced apples with sugar, flour, cinnamon, nutmeg, and salt",
+      "Fill crust with apple mixture and dot with butter",
+      "Cover with top crust and crimp edges",
+      "Cut vents in top crust",
+      "Brush with beaten egg and sprinkle with sugar",
+      "Bake 45-50 minutes until golden brown"
+    ],
+    "cookingTime": "65 minutes",
+    "servings": 8,
+    "image": "https://images.unsplash.com/photo-1621743478914-cc8a86d7e7b5?q=80&w=3474&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "pad-thai",
+    "name": "Traditional Pad Thai",
+    "ingredients": [
+      "8 oz rice noodles",
+      "2 tbsp tamarind paste",
+      "2 tbsp fish sauce",
+      "2 tbsp sugar",
+      "2 tbsp vegetable oil",
+      "2 eggs",
+      "4 oz shrimp, peeled",
+      "2 cloves garlic, minced",
+      "1 cup bean sprouts",
+      "3 green onions, chopped",
+      "¼ cup peanuts, crushed",
+      "Lime wedges"
+    ],
+    "instructions": [
+      "Soak rice noodles in warm water until soft",
+      "Mix tamarind paste, fish sauce, and sugar for sauce",
+      "Heat oil in wok over high heat",
+      "Scramble eggs and remove from pan",
+      "Cook shrimp and garlic until shrimp is pink",
+      "Add drained noodles and sauce, toss to coat",
+      "Add bean sprouts and green onions",
+      "Return eggs to pan and toss everything together",
+      "Serve with peanuts and lime wedges"
+    ],
+    "cookingTime": "25 minutes",
+    "servings": 4,
+    "image": "https://images.unsplash.com/photo-1655091273851-7bdc2e578a88?q=80&w=3474&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "meatball-subs",
+    "name": "Italian Meatball Subs",
+    "ingredients": [
+      "1 lb ground beef",
+      "½ cup breadcrumbs",
+      "1 egg",
+      "¼ cup Parmesan cheese",
+      "2 cloves garlic, minced",
+      "2 cups marinara sauce",
+      "4 sub rolls",
+      "2 cups mozzarella cheese",
+      "¼ cup olive oil",
+      "Salt and pepper",
+      "Italian seasoning"
+    ],
+    "instructions": [
+      "Preheat oven to 400°F",
+      "Mix ground beef, breadcrumbs, egg, Parmesan, garlic, salt, and pepper",
+      "Form into 16 meatballs",
+      "Heat oil in large skillet and brown meatballs on all sides",
+      "Add marinara sauce and simmer 15 minutes",
+      "Split sub rolls and toast lightly",
+      "Fill rolls with meatballs and sauce",
+      "Top with mozzarella cheese",
+      "Bake 5-7 minutes until cheese melts"
+    ],
+    "cookingTime": "35 minutes",
+    "servings": 4,
+    "image": "https://plus.unsplash.com/premium_photo-1664391874754-39fe79e23900?q=80&w=3434&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "chicken-soup",
+    "name": "Homemade Chicken Soup",
+    "ingredients": [
+      "1 whole chicken",
+      "2 carrots, sliced",
+      "2 celery stalks, chopped",
+      "1 onion, diced",
+      "3 cloves garlic, minced",
+      "8 cups water",
+      "2 bay leaves",
+      "1 tsp thyme",
+      "1 cup egg noodles",
+      "Salt and pepper",
+      "Fresh parsley"
+    ],
+    "instructions": [
+      "Place chicken in large pot with water, bay leaves, and thyme",
+      "Bring to boil, then simmer 1 hour until chicken is tender",
+      "Remove chicken and shred meat, discard bones",
+      "Strain broth and return to pot",
+      "Add carrots, celery, and onion to broth",
+      "Simmer 15 minutes until vegetables are tender",
+      "Add egg noodles and cook according to package directions",
+      "Return shredded chicken to pot and season with salt and pepper"
+    ],
+    "cookingTime": "90 minutes",
+    "servings": 8,
+    "image": "https://images.unsplash.com/photo-1612966948332-81d747414a8f?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "fish-tacos",
+    "name": "Baja Fish Tacos",
+    "ingredients": [
+      "1 lb white fish fillets",
+      "1 cup flour",
+      "1 tsp chili powder",
+      "½ tsp cumin",
+      "8 corn tortillas",
+      "2 cups cabbage, shredded",
+      "1 avocado, sliced",
+      "¼ cup sour cream",
+      "2 tbsp lime juice",
+      "¼ cup cilantro",
+      "Vegetable oil for frying",
+      "Salt and pepper"
+    ],
+    "instructions": [
+      "Season fish with salt, pepper, chili powder, and cumin",
+      "Dredge fish in flour",
+      "Heat oil in large skillet over medium-high heat",
+      "Fry fish 3-4 minutes per side until golden",
+      "Warm tortillas on griddle",
+      "Mix cabbage with lime juice and cilantro",
+      "Flake fish into pieces",
+      "Assemble tacos with fish, cabbage slaw, and avocado",
+      "Top with sour cream and serve with lime wedges"
+    ],
+    "cookingTime": "25 minutes",
+    "servings": 4,
+    "image": "https://plus.unsplash.com/premium_photo-1681406995032-c3ceeb24d7f9?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "chocolate-brownies",
+    "name": "Fudgy Chocolate Brownies",
+    "ingredients": [
+      "½ cup butter",
+      "2 oz dark chocolate, chopped",
+      "1 cup sugar",
+      "2 large eggs",
+      "1 tsp vanilla extract",
+      "⅓ cup cocoa powder",
+      "½ cup all-purpose flour",
+      "¼ tsp salt",
+      "½ cup chocolate chips"
+    ],
+    "instructions": [
+      "Preheat oven to 350°F and grease 8x8 baking pan",
+      "Melt butter and dark chocolate together, let cool slightly",
+      "Whisk in sugar until combined",
+      "Beat in eggs one at a time, then vanilla",
+      "Sift together cocoa powder, flour, and salt",
+      "Fold dry ingredients into chocolate mixture",
+      "Stir in chocolate chips",
+      "Pour into prepared pan and bake 25-30 minutes"
+    ],
+    "cookingTime": "40 minutes",
+    "servings": 16,
+    "image": "https://images.unsplash.com/photo-1706145787134-01a647fb8edb?q=80&w=3431&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  },
+  {
+    "id": "quinoa-salad",
+    "name": "Mediterranean Quinoa Salad",
+    "ingredients": [
+      "1 cup quinoa",
+      "2 cups water",
+      "1 cucumber, diced",
+      "2 tomatoes, diced",
+      "½ red onion, finely diced",
+      "½ cup feta cheese, crumbled",
+      "¼ cup olive oil",
+      "2 tbsp lemon juice",
+      "2 tbsp fresh mint, chopped",
+      "2 tbsp fresh parsley, chopped",
+      "Salt and pepper"
+    ],
+    "instructions": [
+      "Rinse quinoa and cook in water until tender, about 15 minutes",
+      "Let quinoa cool completely",
+      "Dice cucumber, tomatoes, and red onion",
+      "Whisk together olive oil, lemon juice, salt, and pepper",
+      "Combine cooled quinoa with vegetables",
+      "Add herbs and feta cheese",
+      "Toss with dressing",
+      "Chill for at least 30 minutes before serving"
+    ],
+    "cookingTime": "25 minutes",
+    "servings": 6,
+    "image": "https://images.unsplash.com/photo-1615865417491-9941019fbc00?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+  }
+]

@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://recipe.gab-cat.me/sitemap.xml
