@@ -12,10 +12,10 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
   const [currentStep, setCurrentStep] = useState(0);
   
   useEffect(() => {
-    const timer1 = setTimeout(() => setCurrentStep(1), 500);
-    const timer2 = setTimeout(() => setCurrentStep(2), 1000);
+    const timer1 = setTimeout(() => setCurrentStep(1), 300);
+    const timer2 = setTimeout(() => setCurrentStep(2), 800);
     const timer3 = setTimeout(() => setCurrentStep(3), 1500);
-    const timer4 = setTimeout(() => onComplete(), 3500);
+    const timer4 = setTimeout(() => onComplete(), 2800);
     
     return () => {
       clearTimeout(timer1);
@@ -33,7 +33,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
         opacity: 0,
         scale: 1.1,
         transition: { 
-          duration: 0.8,
+          duration: 0.6,
           ease: [0.4, 0, 0.2, 1]
         }
       }}
@@ -55,8 +55,8 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
               opacity: [0, 0.6, 0],
             }}
             transition={{
-              duration: 3,
-              delay: Math.random() * 2,
+              duration: 2.5,
+              delay: Math.random() * 1.5,
               repeat: Infinity,
               ease: "easeOut"
             }}
@@ -76,10 +76,10 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             rotate: currentStep >= 0 ? 0 : -180
           }}
           transition={{ 
-            duration: 0.8,
+            duration: 0.6,
             ease: [0.4, 0, 0.2, 1],
             type: "spring",
-            stiffness: 100
+            stiffness: 120
           }}
         >
           <div className="w-24 h-24 bg-gradient-to-br from-primary via-accent to-primary rounded-2xl flex items-center justify-center relative shadow-2xl shadow-primary/40">
@@ -103,8 +103,8 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
                         rotate: [0, 180, 360],
                       }}
                       transition={{ 
-                        duration: 1,
-                        delay: i * 0.1,
+                        duration: 0.8,
+                        delay: i * 0.05,
                         ease: "easeOut"
                       }}
                     >
@@ -126,8 +126,8 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             y: currentStep >= 1 ? 0 : 30
           }}
           transition={{ 
-            duration: 0.6,
-            delay: 0.3,
+            duration: 0.4,
+            delay: 0.2,
             ease: [0.4, 0, 0.2, 1]
           }}
         >
@@ -138,7 +138,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             className="text-gray-300 mt-2 font-medium"
             initial={{ opacity: 0 }}
             animate={{ opacity: currentStep >= 2 ? 1 : 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
           >
             Premium Culinary Experience
           </motion.p>
@@ -153,15 +153,15 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             scale: currentStep >= 2 ? 1 : 0.5
           }}
           transition={{ 
-            duration: 0.6,
-            delay: 0.8,
+            duration: 0.4,
+            delay: 0.5,
             ease: [0.4, 0, 0.2, 1]
           }}
         >
           {[
             { icon: Utensils, delay: 0 },
-            { icon: Star, delay: 0.1 }, 
-            { icon: ChefHat, delay: 0.2 }
+            { icon: Star, delay: 0.05 }, 
+            { icon: ChefHat, delay: 0.1 }
           ].map(({ icon: Icon, delay }, index) => (
             <motion.div
               key={index}
@@ -172,8 +172,8 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
                 opacity: currentStep >= 2 ? 1 : 0
               }}
               transition={{ 
-                duration: 0.4,
-                delay: delay + 0.8,
+                duration: 0.3,
+                delay: delay + 0.5,
                 ease: "easeOut"
               }}
             >
@@ -187,7 +187,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
           className="relative"
           initial={{ opacity: 0 }}
           animate={{ opacity: currentStep >= 3 ? 1 : 0 }}
-          transition={{ duration: 0.4, delay: 1.2 }}
+          transition={{ duration: 0.3, delay: 0.8 }}
         >
           <div className="w-32 h-1 bg-gray-800 rounded-full overflow-hidden">
             <motion.div
@@ -195,8 +195,8 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
               initial={{ width: "0%" }}
               animate={{ width: currentStep >= 3 ? "100%" : "0%" }}
               transition={{ 
-                duration: 0.8,
-                delay: 1.3,
+                duration: 1.0,
+                delay: 0.9,
                 ease: [0.4, 0, 0.2, 1]
               }}
             />
@@ -205,7 +205,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             className="text-xs text-gray-400 text-center mt-3 font-medium"
             initial={{ opacity: 0 }}
             animate={{ opacity: currentStep >= 3 ? 1 : 0 }}
-            transition={{ duration: 0.3, delay: 1.4 }}
+            transition={{ duration: 0.3, delay: 1.0 }}
           >
             Preparing your culinary journey...
           </motion.p>
