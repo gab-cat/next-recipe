@@ -9,32 +9,20 @@ interface RecipeDetailPageProps {
 }
 
 // Generate static params for all recipes at build time
-// export async function generateStaticParams() {
-//   try {
-//     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
-    
-//     const response = await fetch(`${baseUrl}/api/recipes`, {
-//       cache: "force-cache",
-//     })
-    
-//     if (!response.ok) {
-//       console.error("Failed to fetch recipes for static generation")
-//       return []
-//     }
-    
-//     const recipes = await response.json()
-    
-//     return recipes.map((recipe: { id: string | number }) => ({
-//       id: recipe.id.toString(),
-//     }))
-//   } catch (error) {
-//     console.error("Error generating static params:", error)
-//     return []
-//   }
-// }
+export async function generateStaticParams() {
+  // During build time, API routes may not be available
+  // Return empty array to allow dynamic generation at runtime
+  return []
+}
 
 // Fetch recipe data for metadata generation
 async function getRecipe(id: string): Promise<Recipe | null> {
+  // During build time, skip fetching and return null
+  // Metadata will be generated at runtime when the page is requested
+  if (process.env.NODE_ENV === 'production' && !process.env.VERCEL_URL) {
+    return null
+  }
+  
   try {
     const baseUrl = process.env.NEXTAUTH_URL || process.env.VERCEL_URL 
       ? `https://${process.env.VERCEL_URL}` 
