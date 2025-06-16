@@ -1,9 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { useDebounce } from "use-debounce"
-import { Search, Filter, ChefHat, TrendingUp, Sparkles, Plus } from "lucide-react"
+import { Search, Filter, ChefHat, TrendingUp, Sparkles, Plus, ArrowUp } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -96,6 +96,8 @@ const useRecipes = (searchTerm: string, timeFilter: string) => {
 export default function HomePageClient() {
   const [searchInput, setSearchInput] = useState("")
   const [timeFilter, setTimeFilter] = useState("")
+  const [isHeroVisible, setIsHeroVisible] = useState(true)
+  const heroRef = useRef<HTMLDivElement>(null)
   
   // Debounce the search term to avoid too many API calls
   const [debouncedSearchTerm] = useDebounce(searchInput, 500)
@@ -105,16 +107,126 @@ export default function HomePageClient() {
   // Show skeletons while searching is happening
   const isSearching = searchInput !== debouncedSearchTerm
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeroVisible(entry.isIntersecting)
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of hero is visible
+        rootMargin: '-100px 0px 0px 0px' // Offset to trigger slightly before hero completely leaves
+      }
+    )
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current)
+    }
+
+    return () => {
+      if (heroRef.current) {
+        observer.unobserve(heroRef.current)
+      }
+    }
+  }, [])
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <div className="min-h-screen bg-gray-900">
+      {/* Sticky Navigation - shown when hero is out of view */}
+      <motion.div 
+        className="bg-gray-900/40 backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 border-b border-gray-700/50"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ 
+          y: isHeroVisible ? -100 : 0,
+          opacity: isHeroVisible ? 0 : 1
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+      >
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <motion.div 
+              className="flex items-center space-x-3"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ 
+                opacity: isHeroVisible ? 0 : 1,
+                x: isHeroVisible ? -20 : 0
+              }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+            >
+              <div className="w-10 h-10 bg-primary/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-primary/30">
+                <ChefHat className="w-6 h-6 text-primary" />
+              </div>
+              <span className="text-xl font-bold text-white">
+                Recipe<span className="text-accent">Hub</span>
+              </span>
+            </motion.div>
+
+            {/* Compact Search Bar */}
+            <motion.div 
+              className="flex-1 max-w-md mx-6"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ 
+                opacity: isHeroVisible ? 0 : 1,
+                y: isHeroVisible ? -10 : 0
+              }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+            >
+              <div className="relative">
+                <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <Search className="w-4 h-4" />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Search recipes..."
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
+                  className="w-full pl-12 pr-4 h-10 text-sm border border-gray-600/50 focus:border-primary rounded-xl transition-all duration-300 bg-gray-800/50 text-white placeholder:text-gray-400 hover:border-gray-500/70 focus:outline-none"
+                />
+                {isSearching && (
+                  <div className="absolute right-4 top-1/2 transform -translate-y-1/2">
+                    <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+
+            {/* Back to Top Button */}
+            <motion.button
+              onClick={scrollToTop}
+              className="bg-gray-900/50 hover:bg-accent/20 lg:px-4 hover:text-accent border border-gray-700 hover:border-accent rounded-xl p-2 text-white transition-all duration-300 flex items-center space-x-2"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ 
+                opacity: isHeroVisible ? 0 : 1,
+                x: isHeroVisible ? 20 : 0
+              }}
+              transition={{ duration: 0.3, delay: 0.3 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <ArrowUp className="w-4 h-4" />
+              <span className="text-sm font-medium hidden sm:block">Back to Top</span>
+            </motion.button>
+          </div>
+        </div>
+      </motion.div>
+
       {/* Hero Section */}
       <motion.div 
-        className="relative overflow-hidden bg-gray-900 pb-8"
+        ref={heroRef}
+        className="relative overflow-hidden bg-gray-900 pt-10 -mt-20"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+        {/* Background gradient from top to bottom */}
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-800 via-gray-800-40 to-gray-900"></div>
 
         {/* Floating geometric patterns */}
         <motion.div 
@@ -253,7 +365,7 @@ export default function HomePageClient() {
             </motion.div>
 
             <motion.p 
-              className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light mb-12"
+              className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-tight font-regular mb-12"
               variants={itemVariants}
             >
               Discover extraordinary flavors and create culinary masterpieces with our premium collection
@@ -291,18 +403,14 @@ export default function HomePageClient() {
 
             {/* Search Section */}
             <motion.div 
-              className="max-w-5xl mx-auto"
+              className="max-w-5xl mx-auto rounded-2xl shadow-none hover:shadow-xl hover:shadow-primary/20 hover:border-primary/50 border border-gray-700/50 transition-all duration-300"
               variants={itemVariants}
             >
               <motion.div 
-                className="bg-gray-800/30 backdrop-blur-2xl rounded-3xl p-8 border border-gray-700/50 shadow-2xl"
+                className="bg-gray-800/30 backdrop-blur-2xl rounded-2xl p-8"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                whileHover={{
-                  boxShadow: "0 25px 50px -12px rgba(29, 67, 216, 0.25)",
-                  transition: { duration: 0.3 }
-                }}
               >
                 <div className="flex flex-col lg:flex-row gap-6 items-center">
                   <div className="flex-1 relative w-full">
@@ -324,7 +432,7 @@ export default function HomePageClient() {
                   </div>
                   <div className="lg:w-72 w-full">
                     <Select value={timeFilter} onValueChange={setTimeFilter}>
-                      <SelectTrigger className="h-16 text-lg border-2 border-gray-600/50 focus:border-accent rounded-2xl bg-gray-800/50 text-white hover:border-gray-500/70 transition-all duration-300 shadow-inner">
+                      <SelectTrigger className="h-16 text-sm border-2 border-gray-600/50 focus:border-accent rounded-2xl bg-gray-800/50 text-white hover:border-gray-500/70 transition-all duration-300 shadow-inner">
                         <div className="flex items-center">
                           <Filter className="w-5 h-5 mr-3 text-gray-400" />
                           <SelectValue placeholder="Filter by cooking time" />

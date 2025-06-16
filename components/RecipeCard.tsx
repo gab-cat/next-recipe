@@ -57,7 +57,7 @@ export default function RecipeCard({ recipe, index = 0 }: RecipeCardProps) {
     >
       <Link href={`/recipes/${recipe.id}`}>
         <motion.div 
-          className="bg-gray-800 backdrop-blur-xl rounded-xl border h-full border-gray-700 overflow-hidden transition-all duration-500 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20"
+          className="bg-gray-800 backdrop-blur-xl rounded-xl border h-full border-gray-900 overflow-hidden transition-all duration-300 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/30"
         >
           <div className="relative overflow-hidden">
             <motion.div
@@ -125,7 +125,7 @@ export default function RecipeCard({ recipe, index = 0 }: RecipeCardProps) {
               }}
               viewport={viewportSettings}
             >
-              <div className="w-10 h-10 bg-primary/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-primary/30 shadow-lg shadow-primary/20">
+              <div className="w-10 h-10 bg-primary/30 backdrop-blur-md rounded-2xl flex items-center justify-center border border-primary/30 shadow-lg shadow-primary/20">
                 <ChefHat className="w-5 h-5 text-primary" />
               </div>
             </motion.div>

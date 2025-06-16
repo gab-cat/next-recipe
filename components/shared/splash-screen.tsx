@@ -82,8 +82,8 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             stiffness: 120
           }}
         >
-          <div className="w-24 h-24 bg-gradient-to-br from-primary via-accent to-primary rounded-2xl flex items-center justify-center relative shadow-2xl shadow-primary/40">
-            <ChefHat className="w-12 h-12 text-white" />
+          <div className="w-24 h-24 bg-primary/20 border border-primary/40 rounded-2xl flex items-center justify-center relative shadow-2xl shadow-primary/40">
+            <ChefHat className="w-12 h-12 text-primary" />
             
             {/* Sparkle animations around the logo */}
             <AnimatePresence>
@@ -131,8 +131,8 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             ease: [0.4, 0, 0.2, 1]
           }}
         >
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-accent to-primary bg-clip-text text-transparent">
-            RecipeHub
+          <h1 className="text-4xl font-bold text-white">
+            Recipe<span className="text-accent">Hub</span>
           </h1>
           <motion.p 
             className="text-gray-300 mt-2 font-medium"
@@ -189,9 +189,9 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
           animate={{ opacity: currentStep >= 3 ? 1 : 0 }}
           transition={{ duration: 0.3, delay: 0.8 }}
         >
-          <div className="w-32 h-1 bg-gray-800 rounded-full overflow-hidden">
+          <div className="w-32 h-1 bg-gray-800 rounded-full overflow-hidden mx-auto">
             <motion.div
-              className="h-full bg-gradient-to-r from-primary to-accent rounded-full"
+              className="h-full bg-gradient-to-r from-primary to-accent rounded-full w-full mx-auto"
               initial={{ width: "0%" }}
               animate={{ width: currentStep >= 3 ? "100%" : "0%" }}
               transition={{ 

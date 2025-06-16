@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { Clock, Users, ChefHat, CheckCircle, Star, ArrowLeft, Play, Sparkles } from "lucide-react"
@@ -19,6 +19,30 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
   const router = useRouter()
   const [completedSteps, setCompletedSteps] = useState<number[]>([])
   const [checkedIngredients, setCheckedIngredients] = useState<number[]>([])
+  const [isHeroVisible, setIsHeroVisible] = useState(true)
+  const heroRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeroVisible(entry.isIntersecting)
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of hero is visible
+        rootMargin: '-100px 0px 0px 0px' // Offset to trigger slightly before hero completely leaves
+      }
+    )
+
+    if (heroRef.current) {
+      observer.observe(heroRef.current)
+    }
+
+    return () => {
+      if (heroRef.current) {
+        observer.unobserve(heroRef.current)
+      }
+    }
+  }, [])
 
   const toggleStep = (stepIndex: number) => {
     setCompletedSteps((prev) => (prev.includes(stepIndex) ? prev.filter((i) => i !== stepIndex) : [...prev, stepIndex]))
@@ -33,16 +57,45 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Navigation */}
-      <div className="bg-gray-900/95 backdrop-blur-xl sticky top-0 z-50">
+      <div className="bg-gray-900/40 backdrop-blur-xl sticky top-0 z-50 transition-all duration-300">
         <div className="container mx-auto px-4 py-4">
-          <Button
-            onClick={() => router.push("/")}
-            variant="ghost"
-            className="text-white hover:bg-accent/20 hover:text-accent border border-gray-700 hover:border-accent rounded-full transition-all duration-300"
-          >
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            Back to Recipes
-          </Button>
+          <div className="flex items-center">
+            <Button
+              onClick={() => router.push("/")}
+              variant="ghost"
+              className="text-white mr-4 bg-gray-900/50 hover:bg-accent/20 hover:text-accent border border-gray-700 hover:border-accent rounded-xl transition-all duration-300"
+            >
+              <ArrowLeft className="w-5 h-5 mr-2" />
+              Back to Recipes
+            </Button>
+            
+            {/* Recipe info shown when hero is out of view */}
+            <motion.div 
+              className="flex items-center space-x-6"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ 
+                opacity: isHeroVisible ? 0 : 1, 
+                x: isHeroVisible ? 20 : 0 
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <div className="text-right">
+                <h2 className="text-lg font-bold text-white truncate max-w-xs">
+                  {recipe.name}
+                </h2>
+                <div className="flex items-center space-x-4 text-sm text-gray-300">
+                  <div className="flex items-center space-x-1">
+                    <Clock className="w-4 h-4 text-primary" />
+                    <span>{recipe.cookingTime}</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <Users className="w-4 h-4 text-accent" />
+                    <span>{recipe.servings} servings</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
 
@@ -52,7 +105,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
         transition={{ duration: 0.3, ease: "easeIn" }}>
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
-          <div className="relative mb-8 animate-fade-in">
+          <div ref={heroRef} className="relative mb-8 animate-fade-in">
             <div className="relative h-[60vh] rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
               <Image 
                 src={recipe.image || "/placeholder.svg"} 

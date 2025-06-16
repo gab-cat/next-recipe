@@ -15,7 +15,6 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
   const [isLoaded, setIsLoaded] = useState(false)
   const [showSplash, setShowSplash] = useState(false)
 
-  // Only show splash after component mounts (client-side only)
   useEffect(() => {
     setShowSplash(true)
   }, [])
@@ -26,13 +25,10 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Always render main content for SSR and metadata */}
       <div style={{ display: showSplash && !isLoaded ? 'none' : 'block' }}>
         <main>{children}</main>
         <Footer />
       </div>
-      
-      {/* Splash screen overlay only on client side */}
       <AnimatePresence>
         {showSplash && !isLoaded && (
           <SplashScreen key="splash" onComplete={handleSplashComplete} />

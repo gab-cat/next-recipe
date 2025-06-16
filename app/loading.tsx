@@ -28,7 +28,7 @@ export default function GlobalLoading() {
       clearInterval(dotInterval)
       clearInterval(stepInterval)
     }
-  }, [])
+  }, [cookingSteps.length])
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 overflow-hidden">
