@@ -15,7 +15,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
     const timer1 = setTimeout(() => setCurrentStep(1), 500);
     const timer2 = setTimeout(() => setCurrentStep(2), 1000);
     const timer3 = setTimeout(() => setCurrentStep(3), 1500);
-    const timer4 = setTimeout(() => onComplete(), 2500);
+    const timer4 = setTimeout(() => onComplete(), 3500);
     
     return () => {
       clearTimeout(timer1);
