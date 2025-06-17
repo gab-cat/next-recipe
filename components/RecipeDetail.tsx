@@ -138,7 +138,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
               {/* Main content */}
               <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-8">
                 <div className="max-w-4xl">
-                  <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-white mb-3 sm:mb-4 leading-tight tracking-tight">
+                  <h1 className="text-3xl sm:text-5xl hover:text-accent transition-all duration-300 lg:text-7xl font-black text-white mb-3 sm:mb-4 leading-tight tracking-tight">
                     {recipe.name}
                   </h1>
                   <p className="text-base sm:text-xl text-gray-300 mb-6 sm:mb-8 max-w-2xl">
