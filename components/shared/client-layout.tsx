@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion"
 import Footer from "@/components/shared/footer"
 import SplashScreen from "@/components/shared/splash-screen"
 import { Toaster } from "sonner"
+import { cn } from "@/lib/utils"
 
 interface ClientLayoutProps {
   children: ReactNode
@@ -26,11 +27,10 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div style={{ 
-        visibility: showSplash && !isLoaded ? 'hidden' : 'visible',
-        position: showSplash && !isLoaded ? 'absolute' : 'relative',
-        zIndex: showSplash && !isLoaded ? -1 : 'auto'
-      }}>
+      <div className={cn(
+        "relative",
+        showSplash && !isLoaded ? "opacity-0" : "opacity-100"
+      )}>
         <main>{children}</main>
         <Footer />
       </div>
