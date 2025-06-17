@@ -252,7 +252,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
               
               {/* Floating elements */}
               <div className="absolute top-4 sm:top-6 left-4 sm:left-6">
-                <div ref={heroRef} className="flex items-center space-x-1 mb-2 sm:mb-3">
+                <div className="flex items-center space-x-1 mb-2 sm:mb-3">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-3 h-3 sm:w-5 sm:h-5 fill-accent text-accent hover-scale" />
                   ))}
@@ -283,7 +283,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
               {/* Main content */}
               <motion.div style={{ opacity: bottomOpacity }} className="absolute bottom-0 left-0 right-0 p-4 sm:p-8">
                 <div className="max-w-4xl">
-                  <h1 className="font-heading text-7xl text-white mb-3 sm:mb-4 leading-tight tracking-tight hover:text-accent transition-all duration-300">
+                  <h1 ref={heroRef} className="font-heading text-7xl text-white mb-3 sm:mb-4 leading-tight tracking-tight hover:text-accent transition-all duration-300">
                     {recipe.name}
                   </h1>
                   <p className="text-lg text-gray-300 mb-6 sm:mb-8 max-w-2xl font-body">
