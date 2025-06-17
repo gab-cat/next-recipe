@@ -3,7 +3,8 @@
 import { useState, useRef, useEffect } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { useDebounce } from "use-debounce"
-import { Search, Filter, ChefHat, TrendingUp, Sparkles, Plus, ArrowUp } from "lucide-react"
+import { useRouter, useSearchParams, usePathname } from "next/navigation"
+import { Search, Filter, ChefHat, TrendingUp, Sparkles, Plus, ArrowUp, X } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -94,8 +95,13 @@ const useRecipes = (searchTerm: string, timeFilter: string) => {
 }
 
 export default function HomePageClient() {
-  const [searchInput, setSearchInput] = useState("")
-  const [timeFilter, setTimeFilter] = useState("")
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  
+  // Initialize state from URL params
+  const [searchInput, setSearchInput] = useState(searchParams.get('search') || "")
+  const [timeFilter, setTimeFilter] = useState(searchParams.get('time') || "")
   const [isHeroVisible, setIsHeroVisible] = useState(true)
   const heroRef = useRef<HTMLDivElement>(null)
   
@@ -106,6 +112,20 @@ export default function HomePageClient() {
 
   // Show skeletons while searching is happening
   const isSearching = searchInput !== debouncedSearchTerm
+
+  // Update URL when debounced search term or time filter changes
+  useEffect(() => {
+    // Function to update URL parameters
+    const updateUrlParams = (search: string, time: string) => {
+      const params = new URLSearchParams()
+      if (search) params.set('search', search)
+      if (time && time !== 'all') params.set('time', time)
+    
+      const newUrl = params.toString() ? `${pathname}?${params.toString()}` : pathname
+      router.replace(newUrl, { scroll: false })
+    }
+    updateUrlParams(debouncedSearchTerm, timeFilter)
+  }, [debouncedSearchTerm, timeFilter, pathname, router])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -424,11 +444,15 @@ export default function HomePageClient() {
                       onChange={(e) => setSearchInput(e.target.value)}
                       className="pl-16 pr-6 h-16 text-lg border-2 border-gray-600/50 focus:border-primary rounded-2xl transition-all duration-300 bg-gray-800/50 text-white placeholder:text-gray-400 hover:border-gray-500/70 shadow-inner"
                     />
-                    {isSearching && (
+                    {isSearching ? (
                       <div className="absolute right-6 top-1/2 transform -translate-y-1/2">
                         <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
                       </div>
-                    )}
+                    ) : !isSearching && searchInput !== "" ? (
+                      <button type="button" className="fade-in absolute right-6 top-1/2 transform -translate-y-1/2 cursor-pointer transition-all duration-300 hover:bg-gray-700/50 rounded-full p-1" onClick={() => setSearchInput("")}>
+                        <X className="w-5 h-5 text-gray-400 hover:text-gray-300" />
+                      </button>
+                    ) : null}
                   </div>
                   <div className="lg:w-72 w-full">
                     <Select value={timeFilter} onValueChange={setTimeFilter}>
@@ -615,6 +639,7 @@ export default function HomePageClient() {
                   onClick={() => {
                     setSearchInput("")
                     setTimeFilter("")
+                    router.replace(pathname, { scroll: false })
                   }}
                   className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all duration-300 shadow-lg shadow-primary/30"
                 >
