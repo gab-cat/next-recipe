@@ -1,7 +1,29 @@
 import type { Metadata } from "next"
 import type React from "react"
+import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google"
 import "@/styles/globals.css"
 import ClientLayout from "@/components/shared/client-layout"
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
+  display: "swap",
+})
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-playfair",
+  display: "swap",
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-jetbrains",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: {
@@ -111,17 +133,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${playfairDisplay.variable} ${jetbrainsMono.variable}`}>
       <head>
         <meta name="theme-color" content="#1f2937" />
         <meta name="color-scheme" content="dark" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link 
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" 
-          rel="stylesheet" 
-        />
       </head>
       <body className="bg-gray-900 font-inter">
         <ClientLayout>{children}</ClientLayout>

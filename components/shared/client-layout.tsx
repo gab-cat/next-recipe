@@ -26,7 +26,11 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div style={{ display: showSplash && !isLoaded ? 'none' : 'block' }}>
+      <div style={{ 
+        visibility: showSplash && !isLoaded ? 'hidden' : 'visible',
+        position: showSplash && !isLoaded ? 'absolute' : 'relative',
+        zIndex: showSplash && !isLoaded ? -1 : 'auto'
+      }}>
         <main>{children}</main>
         <Footer />
       </div>
