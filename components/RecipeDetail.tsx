@@ -282,7 +282,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                     {recipe.name}
                   </h1>
                   <p className="text-sm sm:text-lg text-gray-300 mb-4 sm:mb-8 max-w-2xl font-body">
-                    A <span className="text-accent font-heading font-bold">premium</span> culinary experience crafted for <span className="text-accent font-heading font-bold">perfection</span>
+                    A <span className="text-accent font-heading font-bold">premium</span> culinary experience crafted for <span className="text-accent font-heading font-bold">perfection</span>.
                   </p>
                   
                   <motion.div style={{ opacity }} className="flex flex-wrap gap-2 sm:gap-4">

@@ -258,8 +258,8 @@ export default function HomePageClient() {
               Recipe<span className="text-accent">Hub</span>
             </h1>
             <p className="text-subtitle text-gray-300 max-w-2xl mx-auto font-body leading-relaxed">
-              Discover extraordinary flavors and create culinary masterpieces with our premium collection of 
-              <span className="text-accent font-semibold font-heading"> chef-approved recipes</span>
+              Discover <span className="text-accent font-semibold font-heading">extraordinary flavors</span> and create culinary masterpieces with our premium collection of 
+              <span className="text-accent font-semibold font-heading"> chef-approved recipes</span>.
             </p>
           </motion.div>
 
