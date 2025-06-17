@@ -106,7 +106,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
           <div ref={heroRef} className="relative mb-6 sm:mb-8 animate-fade-in">
-            <div className="relative h-[45vh] sm:h-[60vh] rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
+            <div className="relative h-[45vh] sm:h-[60vh] rounded-t-xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
               <Image 
                 src={recipe.image || "/placeholder.svg"} 
                 alt={recipe.name} 
@@ -114,7 +114,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                 className={cn("object-cover opacity-80", loaded ? "fade-in" : "opacity-0")} 
                 onLoad={() => setLoaded(true)}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"></div>
               
               {/* Floating elements - adjusted for mobile */}
               <div className="absolute top-4 sm:top-6 left-4 sm:left-6">
