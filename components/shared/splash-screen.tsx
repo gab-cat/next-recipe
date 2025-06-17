@@ -131,7 +131,7 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
             ease: [0.4, 0, 0.2, 1]
           }}
         >
-          <h1 className="text-4xl font-bold text-white">
+          <h1 className="text-4xl font-bold font-heading tracking-tight text-white">
             Recipe<span className="text-accent">Hub</span>
           </h1>
           <motion.p 

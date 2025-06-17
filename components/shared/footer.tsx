@@ -18,7 +18,7 @@ export default function Footer() {
                 </div>
               </div>
               <div>
-                <span className="text-2xl font-black">
+                <span className="text-2xl font-black font-heading">
                   <span className="text-white">Recipe</span>
                   <span className="text-accent">Hub</span>
                 </span>
@@ -46,16 +46,16 @@ export default function Footer() {
           {/* About the Author Section */}
           <div className="">
             <div className="max-w-2xl mx-auto text-left">
-              <h3 className="text-2xl font-bold mb-4">About the <span className="text-accent">Author</span></h3>
+              <h3 className="text-2xl font-bold font-heading mb-4 ">About the <span className="text-accent">Author</span></h3>
               <p className="text-gray-400 mb-6">
-                Created by <span className="text-white font-bold">Gabriel Catimbang</span>, a passionate developer and cooking enthusiast who loves sharing delicious recipes and culinary experiences.
+                Created by <span className="text-accent font-heading font-bold">Gabriel Catimbang</span>, a passionate developer and cooking enthusiast who loves sharing delicious recipes and culinary experiences.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link 
                   href="https://github.com/gab-cat" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center space-x-2 bg-gray-800 rounded-full border px-6 border-white/10 hover:border-white/50 hover:bg-gray-700 text-white py-2 transition-colors duration-300"
+                  className="flex shadow-2xl shadow-gray-800/20 hover:shadow-gray-800/40 text-xs sm:text-sm items-center justify-center space-x-2 bg-gray-800 rounded-xl font-mono border px-6 border-white/10 hover:border-white/50 hover:bg-gray-700 text-white py-2 transition-colors duration-300"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd"/>
@@ -66,7 +66,7 @@ export default function Footer() {
                   href="https://linkedin.com/in/gabrielcatimbang" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center space-x-2 bg-blue-600/20 hover:bg-blue-600/30 border border-white/10 hover:border-blue-600/50 text-white px-6 py-2 rounded-full transition-colors duration-300"
+                  className="flex shadow-2xl shadow-blue-600/20 hover:shadow-blue-600/40 text-xs sm:text-sm items-center justify-center space-x-2 bg-blue-600/20 hover:bg-blue-600/30 border border-white/10 hover:border-blue-600/50 text-white px-6 py-2 rounded-xl font-mono transition-colors duration-300"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM4.943 8.57c-.86 0-1.548-.69-1.548-1.54 0-.85.689-1.54 1.548-1.54.858 0 1.548.69 1.548 1.54 0 .85-.69 1.54-1.548 1.54zM6.277 18.339H3.61V9.75h2.667v8.589zM19.67 0H.33C.148 0 0 .148 0 .33v19.34c0 .182.148.33.33.33h19.34c.182 0 .33-.148.33-.33V.33C20 .148 19.852 0 19.67 0z"/>

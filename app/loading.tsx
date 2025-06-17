@@ -51,8 +51,8 @@ export default function GlobalLoading() {
       {/* Main loading content */}
       <div className="relative text-center animate-fade-in">
         {/* Animated chef hat with glow */}
-        <div className="relative mb-8 mx-auto">
-          <div className="relative">
+        <div className="relative mb-8 mx-auto w-full">
+          <div className="relative items-center justify-center flex">
             {/* Outer glow ring */}
             <div className="absolute inset-0 w-32 h-32 rounded-full bg-primary/20 animate-ping"></div>
             
@@ -78,7 +78,7 @@ export default function GlobalLoading() {
 
         {/* Brand text */}
         <div className="mb-8">
-          <h1 className="text-5xl md:text-6xl font-black mb-4 tracking-tight">
+          <h1 className="text-5xl md:text-7xl font-black mb-4 tracking-tight font-heading">
             <span className="text-white">Recipe</span>
             <span className="text-accent">Hub</span>
           </h1>
@@ -93,11 +93,11 @@ export default function GlobalLoading() {
 
         {/* Loading text with animated dots */}
         <div className="mb-8">
-          <p className="text-2xl text-white font-semibold mb-2">
+          <p className="text-xl text-white font-semibold mb-2">
             {cookingSteps[cookingStep]}
             <span className="text-accent inline-block w-8 text-left">{dots}</span>
           </p>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 text-base">
             Creating something delicious for you
           </p>
         </div>

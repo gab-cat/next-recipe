@@ -1,14 +1,21 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
-export default {
-    darkMode: ["class"],
-    content: [
+const config: Config = {
+  darkMode: ["class"],
+  content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			'inter': ['Inter', 'sans-serif'],
+  			'heading': ['Playfair Display', 'serif'],
+  			'body': ['Inter', 'sans-serif'],
+  			'mono': ['JetBrains Mono', 'monospace'],
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
@@ -55,8 +62,36 @@ export default {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		animation: {
+  			"fade-in": "fade-in 0.5s ease-in-out forwards",
+  			"slide-up": "slide-up 0.3s ease-out forwards",
+  			"scale-in": "scale-in 0.3s ease-out forwards",
+  			"bounce-gentle": "bounce-gentle 0.6s ease-in-out",
+  		},
+  		keyframes: {
+  			"fade-in": {
+  				"0%": { opacity: "0" },
+  				"100%": { opacity: "1" },
+  			},
+  			"slide-up": {
+  				"0%": { transform: "translateY(20px)", opacity: "0" },
+  				"100%": { transform: "translateY(0)", opacity: "1" },
+  			},
+  			"scale-in": {
+  				"0%": { transform: "scale(0.8)", opacity: "0" },
+  				"100%": { transform: "scale(1)", opacity: "1" },
+  			},
+  			"bounce-gentle": {
+  				"0%, 20%, 50%, 80%, 100%": { transform: "translateY(0)" },
+  				"40%": { transform: "translateY(-10px)" },
+  				"60%": { transform: "translateY(-5px)" },
+  			},
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
+
+export default config;
