@@ -13,28 +13,48 @@ type ShowToastParams = {
 // Custom styling for different toast types
 const toastStyles = {
   success: {
-    style: { backgroundColor: '#1cb052', borderColor: '#16a34a', color: 'white', fontWeight: 'bold' },
+    style: { 
+      backgroundColor: 'hsl(79 98% 50%)', // Brand accent color (#adfc03)
+      borderColor: 'hsl(79 98% 45%)', 
+      color: 'black', 
+      fontWeight: 'bold' 
+    },
     icon: () => React.createElement(CheckCircle, { 
-      className: 'h-5 w-5 text-white'
+      className: 'h-5 w-5 text-black'
     }),
     defaultDuration: 3000
   },
   error: {
-    style: { backgroundColor: '#ef4444', borderColor: '#dc2626', color: 'white', fontWeight: 'bold' },
+    style: { 
+      backgroundColor: 'hsl(0 84.2% 60.2%)', // Brand destructive color
+      borderColor: 'hsl(0 84.2% 55%)', 
+      color: 'white', 
+      fontWeight: 'bold' 
+    },
     icon: () => React.createElement(XCircle, { 
       className: 'h-5 w-5 text-white'
     }),
     defaultDuration: 4000
   },
   warning: {
-    style: { backgroundColor: '#f59e0b', borderColor: '#d97706', color: 'white', fontWeight: 'bold' },
+    style: { 
+      backgroundColor: 'hsl(38 92% 50%)', // Warmer orange that complements the brand
+      borderColor: 'hsl(38 92% 45%)', 
+      color: 'white', 
+      fontWeight: 'bold' 
+    },
     icon: () => React.createElement(AlertTriangle, { 
       className: 'h-5 w-5 text-white'
     }),
     defaultDuration: 4000
   },
   info: {
-    style: { backgroundColor: '#3b82f6', borderColor: '#2563eb', color: 'white', fontWeight: 'bold' },
+    style: { 
+      backgroundColor: 'hsl(221.2 83.2% 53.3%)', // Brand primary color
+      borderColor: 'hsl(221.2 83.2% 48%)', 
+      color: 'white', 
+      fontWeight: 'bold' 
+    },
     icon: () => React.createElement(Info, { 
       className: 'h-5 w-5 text-white'
     }),
@@ -72,8 +92,8 @@ export const showToast = ({
       closeButton: 'text-gray-500 hover:text-gray-700 transition-colors',
       actionButton: 'bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors',
       cancelButton: 'bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors',
-      title: 'font-bold! text-sm leading-tight',
-      description: 'text-xs opacity-90 leading-relaxed',
+      title: '!font-bold font-body tracking-wide text-sm leading-tight',
+      description: 'text-xs opacity-90 leading-relaxed font-mono',
       toast: 'backdrop-blur-sm',
     },
     ...restOptions

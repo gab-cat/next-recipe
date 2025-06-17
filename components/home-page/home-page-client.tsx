@@ -194,12 +194,15 @@ export default function HomePageClient() {
               }}
               transition={{ duration: 0.3, delay: 0.1 }}
             >
-              <div className="w-10 h-10 bg-primary/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-primary/30">
-                <ChefHat className="w-6 h-6 text-primary" />
+              <div className="relative">
+                <div className="w-12 h-12 bg-primary/20 border border-primary/30 rounded-xl flex items-center justify-center">
+                  <ChefHat className="w-7 h-7 text-primary" />
+                </div>
+                <div className="absolute -top-1 -right-1 w-5 h-5 bg-accent rounded-full flex items-center justify-center">
+                  <span className="text-black font-bold text-base">+</span>
+                </div>
               </div>
-              <span className="text-xl font-bold tracking-tight text-white font-heading">
-                Recipe<span className="text-accent">Hub</span>
-              </span>
+              <span className="text-xl sm:text-2xl font-bold tracking-tight text-white font-heading">Recipe<span className="text-accent">Hub</span></span>
             </motion.div>
 
             {/* Compact Search Bar */}

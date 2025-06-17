@@ -186,7 +186,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                 className="text-white font-mono shadow-2xl shadow-accent/20 hover:shadow-accent/40 bg-gray-900/50 hover:bg-accent/20 hover:text-accent border border-gray-700 hover:border-accent rounded-xl transition-all duration-300 px-3 py-2 sm:px-4 sm:py-2"
               >
                 <ArrowLeft className="w-4 h-4 mr-1 sm:mr-2" />
-                <span className="text-xs sm:text-sm">Back</span>
+                <span className="text-xs sm:text-sm">Back <span className="hidden sm:inline">to Recipes</span></span>
               </Button>
               
               {/* Recipe info shown when hero is out of view*/}
@@ -228,20 +228,21 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
         <div className="max-w-7xl mx-auto">
           {/* Hero Section with Parallax  */}
           <motion.div 
-            className="relative mb-4 sm:mb-8 animate-fade-in parallax"
+            className="relative mb-4 sm:mb-8 animate-fade-in parallax border-none"
             style={{ y: yBg }}
           >
-            <div className="relative h-[35vh] sm:h-[60vh] rounded-xl rounded-b-none overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
+            <div className="relative h-[35vh] sm:h-[60vh] rounded-xl border-none rounded-b-none overflow-hidden bg-gradient-to-t from-gray-800 to-gray-900">
               <motion.div style={{ opacity }}>
                 <Image 
                   src={recipe.image ?? "/placeholder.svg"} 
                   alt={recipe.name} 
-                  fill 
-                  className={cn("object-cover opacity-0 rounded-xl rounded-b-none blur-up", loaded ? "loaded fade-in" : "")} 
+                  fill={true}
+                  objectFit="cover"
+                  className={cn("object-cover opacity-0 rounded-xl rounded-b-none border-none blur-up", loaded ? "loaded fade-in" : "")} 
                   onLoad={() => setLoaded(true)}
                 />
               </motion.div>
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent"></div>
+              <div className="absolute border-none inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent" />
               
               {/* Floating elements */}
               <div className="absolute top-3 sm:top-6 left-3 sm:left-6">
@@ -251,12 +252,12 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                   ))}
                 </div>
                 <div className="flex flex-col space-y-1 sm:space-y-2">
-                  <Badge className="bg-primary/60 rounded-lg text-white backdrop-blur-sm border border-white/30 text-xs px-2 py-1">
+                  <Badge className="hidden sm:flex bg-primary/60 rounded-lg text-white backdrop-blur-sm border border-white/30 text-xs px-2 py-1">
                     <Sparkles className="w-3 h-3 mr-1" />
                     <span className="hidden xs:inline">Premium Recipe</span>
                     <span className="xs:hidden">Premium</span>
                   </Badge>
-                  <Badge className={`${getDifficultyColors(difficulty)} rounded-lg backdrop-blur-sm border border-white/30 text-xs font-mono px-2 py-1`}>
+                  <Badge className={`${getDifficultyColors(difficulty)} hidden sm:block rounded-lg backdrop-blur-sm border border-white/30 text-xs font-mono px-2 py-1`}>
                     {difficulty.toUpperCase()}
                   </Badge>
                 </div>
@@ -314,7 +315,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
           <div className="grid lg:grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-10">
             {/* Ingredients */}
             <div className="lg:col-span-1 order-2 lg:order-1">
-              <div className="bg-gray-800/50 backdrop-blur-xl rounded-2xl border border-gray-700 p-4 sm:p-6 lg:sticky lg:top-32 animate-slide-up card-stack">
+              <div className="bg-gray-800/50 backdrop-blur-xl rounded-2xl border-none border-gray-700 p-4 sm:p-6 lg:sticky lg:top-32 animate-slide-up card-stack">
                 <div className="flex items-center justify-between mb-4 sm:mb-6">
                   <div className="flex items-center">
                     <div className="w-8 h-8 sm:w-12 sm:h-12 bg-primary/20 rounded-xl flex items-center justify-center mr-2 sm:mr-3 border border-primary/30">
@@ -334,10 +335,10 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                   {recipe.ingredients.map((ingredient, index) => (
                     <motion.div
                       key={index}
-                      className={`flex items-center p-3 rounded-xl cursor-pointer transition-all duration-300 border touch-target ${
+                      className={`flex font-mono items-center p-3 rounded-xl cursor-pointer transition-all duration-300 border-[0.1px] touch-target ${
                         checkedIngredients.includes(index)
-                          ? "bg-primary/20 border-primary/50 shadow-lg shadow-primary/20"
-                          : "bg-gray-800/30 hover:bg-gray-700/50 border-gray-600 hover:border-gray-500"
+                          ? "bg-primary/20 border-primary/30 shadow-lg shadow-primary/20"
+                          : "bg-gray-800/30 hover:bg-gray-700/50 border-gray-600/50 hover:border-gray-500"
                       }`}
                       onClick={() => toggleIngredient(index)}
                       whileHover={{ scale: 1.02 }}
@@ -363,7 +364,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                         )}
                       </motion.div>
                       <span
-                        className={`font-medium transition-all duration-300 text-sm font-body ${
+                        className={`font-medium font-mono transition-all duration-300 text-sm ${
                           checkedIngredients.includes(index) 
                             ? "line-through text-primary" 
                             : "text-gray-200 hover:text-white"
@@ -393,7 +394,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
 
             {/* Instructions */}
             <div className="lg:col-span-2 order-1 lg:order-2">
-              <div className="bg-gray-800/50 backdrop-blur-xl rounded-2xl border border-gray-700 p-4 sm:p-6 animate-slide-up card-stack">
+              <div className="bg-gray-800/50 backdrop-blur-xl rounded-2xl border-none border-gray-700 p-4 sm:p-6 animate-slide-up card-stack">
                 <div className="flex items-center justify-between mb-4 sm:mb-6">
                   <div className="flex items-center">
                     <div className="w-8 h-8 sm:w-12 sm:h-12 bg-accent/20 rounded-xl flex items-center justify-center mr-2 sm:mr-3 border border-accent/30">
@@ -417,7 +418,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                       className={`flex items-start p-3 sm:p-4 rounded-xl cursor-pointer transition-all duration-300 border touch-target ${
                         completedSteps.includes(index)
                           ? "bg-accent/20 border-accent/50 shadow-lg shadow-accent/20"
-                          : "bg-gray-800/30 hover:bg-gray-700/50 border-gray-600 hover:border-gray-500"
+                          : "bg-gray-800/30 hover:bg-gray-700/50 border-gray-600/50 hover:border-gray-500"
                       }`}
                       onClick={() => toggleStep(index)}
                       whileHover={{ scale: 1.01 }}
@@ -461,7 +462,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
 
                 {completedSteps.length === recipe.instructions.length && (
                   <motion.div 
-                    className="mt-4 sm:mt-6 p-4 sm:p-6 bg-gradient-to-br from-primary to-accent rounded-2xl text-center animate-scale-in border border-accent/30 shadow-2xl shadow-accent/20"
+                    className="mt-4 sm:mt-6 p-4 sm:p-6 bg-accent/10 text-white rounded-2xl text-center animate-scale-in border border-accent/50 shadow-2xl shadow-accent/20"
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
@@ -469,13 +470,12 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                     <div className="text-gray-900">
                       <motion.div 
                         className="w-10 h-10 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4"
-                        animate={{ rotate: [0, 360] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
                       >
-                        <CheckCircle className="w-6 h-6 sm:w-10 sm:h-10 text-gray-900" />
+                        <CheckCircle className="w-6 h-6 sm:w-10 sm:h-10 text-accent" />
                       </motion.div>
-                      <h3 className="text-xl sm:text-3xl font-black mb-1 sm:mb-3 font-heading">Congratulations!</h3>
-                      <p className="text-sm sm:text-lg font-medium font-body">You&apos;ve completed this amazing recipe! 🎉</p>
+                      <h3 className="text-xl sm:text-3xl text-accent mb-1 sm:mb-3 font-heading">Congratulations!</h3>
+                      <p className="text-sm sm:text-lg font-medium font-body text-white">You&apos;ve completed this amazing recipe.</p>
+                      <p className="text-xs sm:text-sm font-mono text-white/60 mt-2">You may now share it with your friends and family.</p>
                     </div>
                   </motion.div>
                 )}
