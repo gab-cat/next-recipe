@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { useDebounce } from "use-debounce"
 import { useRouter, useSearchParams, usePathname } from "next/navigation"
-import { Search, Filter, ChefHat, ArrowUp, X, Plus, ArrowRight } from "lucide-react"
+import { Search, Filter, ChefHat, ArrowUp, X, Plus, ArrowRight, FunnelX } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -14,6 +14,7 @@ import FloatingActionButton from "@/components/ui/floating-action-button"
 import { showToast } from "@/lib/toast"
 import { Recipe } from "@/types/recipe"
 import { motion, Variants } from "framer-motion"
+import { cn } from "@/lib/utils"
 
 // Animation variants
 const containerVariants: Variants = {
@@ -294,27 +295,30 @@ export default function HomePageClient() {
               
               <div className="flex gap-4 font-mono">
                 <Select value={timeFilter} onValueChange={setTimeFilter}>
-                  <SelectTrigger className="w-48 font-mono bg-gray-800/50 border-gray-600 text-white rounded-xl backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-300 touch-target shadow-2xl shadow-primary/20 hover:shadow-primary/40 focus:shadow-primary/60 hover:border-primary/60">
+                  <SelectTrigger className="w-48 text-xs sm:text-sm font-mono bg-gray-800/50 border-gray-600 text-white rounded-xl backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-300 touch-target shadow-2xl shadow-primary/20 hover:shadow-primary/40 focus:shadow-primary/60 hover:border-primary/60">
                     <Filter className="w-4 h-4 mr-2 text-gray-400" />
                     <SelectValue placeholder="Cooking time" className="text-xs sm:text-sm" />
                   </SelectTrigger>
                   <SelectContent className="bg-gray-800 text-white rounded-xl border-gray-600 font-mono text-xs sm:text-sm">
-                    <SelectItem className="rounded-xl" value="all">All times</SelectItem>
-                    <SelectItem className="rounded-xl" value="quick">Quick (under 30 min)</SelectItem>
-                    <SelectItem className="rounded-xl" value="medium">Medium (30-60 min)</SelectItem>
-                    <SelectItem className="rounded-xl" value="long">Long (60+ min)</SelectItem>
+                    <SelectItem className="rounded-xl text-xs sm:text-sm" value="all">All times</SelectItem>
+                    <SelectItem className="rounded-xl text-xs sm:text-sm" value="quick">Quick (under 30 min)</SelectItem>
+                    <SelectItem className="rounded-xl text-xs sm:text-sm" value="medium">Medium (30-60 min)</SelectItem>
+                    <SelectItem className="rounded-xl text-xs sm:text-sm" value="long">Long (60+ min)</SelectItem>
                   </SelectContent>
                 </Select>
 
-                {(searchInput || timeFilter) && (
-                  <Button
-                    variant="outline"
-                    onClick={clearFilters}
-                    className="border-accent/50 font-mono bg-gray-800/50 text-accent hover:bg-accent hover:text-gray-900 rounded-xl touch-target"
-                  >
-                    Clear filters
-                  </Button>
-                )}
+                <Button
+                  variant="outline"
+                  onClick={clearFilters}
+                  disabled={!searchInput && !timeFilter}
+                  className={cn(
+                    "font-mono bg-gray-800/50 text-xs sm:text-sm  hover:text-gray-900 rounded-xl touch-target transition-all duration-300 ",
+                    (!searchInput && !timeFilter) ? "opacity-50 text-gray-400 cursor-not-allowed" : "hover:text-accent/50 text-accent/60 bg-accent/10 hover:bg-accent/20 border-accent/50 shadow-2xl shadow-accent/20 hover:shadow-accent/40 focus:shadow-accent/60 hover:border-accent/60"
+                  )}
+                >
+                  <FunnelX className="w-4 h-4" />
+                  Clear filters
+                </Button>
               </div>
             </div>
 

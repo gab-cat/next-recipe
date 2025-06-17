@@ -101,8 +101,8 @@ export default function RecipeCard({ recipe, index = 0 }: RecipeCardProps) {
                 width={400}
                 height={250}
                 className={cn(
-                  "w-full h-52 object-cover opacity-80 blur-up transition-all duration-300",
-                  loaded ? "loaded hover-scale" : ""
+                  "w-full h-52 object-cover opacity-0 blur-up transition-all duration-300",
+                  loaded ? "loaded hover-scale fade-in" : ""
                 )}
                 onLoad={() => setLoaded(true)}
               />
