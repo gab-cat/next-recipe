@@ -87,7 +87,7 @@ export default function RecipeCard({ recipe, index = 0 }: RecipeCardProps) {
     >
       <Link href={`/recipes/${recipe.id}`}>
         <motion.div 
-          className="bg-gray-800 backdrop-blur-xl rounded-xl border h-full border-gray-900 overflow-hidden transition-all duration-300 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/30 card-stack hover-lift"
+          className="bg-gray-800 backdrop-blur-xl rounded-xl border h-full border-gray-900 overflow-hidden transition-all duration-300 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/30 hover-lift"
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
           <div className="relative overflow-hidden">
@@ -108,7 +108,7 @@ export default function RecipeCard({ recipe, index = 0 }: RecipeCardProps) {
               />
             </motion.div>
             
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-800 via-gray-900/40 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-gray-800 via-gray-900/40 to-transparent group-hover:from-gray-800 group-hover:via-gray-800/40 transition-all duration-300"></div>
 
             {/* Time and Difficulty Badges */}
             <motion.div 

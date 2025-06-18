@@ -51,7 +51,8 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
 
   // Parallax transforms
   const yBg = useTransform(scrollY, [0, 500], [0, 150])
-  const opacity = useTransform(scrollY, [0, 300], [1, 0])
+  const opacity = useTransform(scrollY, [0, 300], [1, 0.35])
+  const badgeOpacity = useTransform(scrollY, [0, 300], [1, 0])
   const bottomOpacity = useTransform(scrollY, [0, 300], [1, 0.75])
 
   const difficulty = getDifficulty(recipe)
@@ -175,31 +176,30 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
       )}
       
       {/* Navigation */}
-      <div className="bg-gray-900/40 backdrop-blur-xl sticky top-0 z-20 transition-all duration-300">
-        <div className="container mx-auto px-3 sm:px-4 py-2 sm:py-4">
-          <div className="flex flex-col space-y-2 sm:space-y-4">
+      <div className="bg-gray-900/40 backdrop-blur-xl sticky top-0 z-20">
+        <div className="container mx-auto px-3 sm:px-4">
+          <div className="flex flex-col">
             
-            <div className="flex flex-row items-center justify-between">
+            <div className="flex flex-row py-2 sm:py-4 items-center justify-between h-[60px] sm:h-[72px]">
               <Button
                 onClick={() => router.back()}
                 variant="ghost"
-                className="text-white font-mono shadow-2xl shadow-accent/20 hover:shadow-accent/40 bg-gray-900/50 hover:bg-accent/20 hover:text-accent border border-gray-700 hover:border-accent rounded-xl transition-all duration-300 px-3 py-2 sm:px-4 sm:py-2"
+                className="text-white self-center font-mono shadow-2xl shadow-accent/20 hover:shadow-accent/40 bg-gray-900/50 hover:bg-accent/20 hover:text-accent border border-gray-700 hover:border-accent rounded-xl transition-all duration-300 px-3 py-2 sm:px-4 sm:py-2"
               >
                 <ArrowLeft className="w-4 h-4 mr-1 sm:mr-2" />
                 <span className="text-xs sm:text-sm">Back <span className="hidden sm:inline">to Recipes</span></span>
               </Button>
               
               {/* Recipe info shown when hero is out of view*/}
-              <motion.div 
-                className="flex items-center flex-1 justify-end ml-3"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ 
-                  opacity: isHeroVisible ? 0 : 1, 
-                  x: isHeroVisible ? 20 : 0 
-                }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              >
-                <div className="text-right">
+              <div className="flex items-center flex-1 justify-end ml-3">
+                <motion.div 
+                  className="text-right"
+                  initial={{ opacity: 0 }}
+                  animate={{ 
+                    opacity: isHeroVisible ? 0 : 1
+                  }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                >
                   <h2 className="text-lg sm:text-2xl font-heading font-bold text-white truncate max-w-[180px] sm:max-w-xs">
                     {recipe.name}
                   </h2>
@@ -214,8 +214,8 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                       <span className="xs:hidden">{recipe.servings}</span>
                     </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>
@@ -245,7 +245,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
               <div className="absolute border-none inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent" />
               
               {/* Floating elements */}
-              <div className="absolute top-3 sm:top-6 left-3 sm:left-6">
+              <motion.div style={{ opacity: badgeOpacity }} className="absolute top-3 sm:top-6 left-3 sm:left-6">
                 <div className="flex items-center space-x-1 mb-2">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-3 h-3 sm:w-5 sm:h-5 fill-accent text-accent hover-scale" />
@@ -261,9 +261,9 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                     {difficulty.toUpperCase()}
                   </Badge>
                 </div>
-              </div>
+              </motion.div>
               
-              <div className="absolute top-3 sm:top-6 right-3 sm:right-6">
+              <motion.div style={{ opacity: badgeOpacity }} className="absolute top-3 sm:top-6 right-3 sm:right-6">
                 <div className="flex flex-col space-y-2 items-end">
                   <div className="w-8 h-8 sm:w-14 sm:h-14 bg-primary/20 backdrop-blur-sm rounded-xl flex items-center justify-center border border-primary/30">
                     <ChefHat className="w-4 h-4 sm:w-7 sm:h-7 text-primary" />
@@ -274,7 +274,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                     <span className="xs:hidden">{readingTime}m</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Main content */}
               <motion.div style={{ opacity: bottomOpacity }} className="absolute bottom-0 left-0 right-0 p-3 sm:p-8">
@@ -286,7 +286,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                     A <span className="text-accent font-heading font-bold">premium</span> culinary experience crafted for <span className="text-accent font-heading font-bold">perfection</span>.
                   </p>
                   
-                  <motion.div style={{ opacity }} className="flex flex-wrap gap-2 sm:gap-4">
+                  <motion.div style={{ opacity: badgeOpacity }} className="flex flex-wrap gap-2 sm:gap-4">
                     <div className="flex items-center space-x-2 bg-gray-900/60 backdrop-blur-sm px-3 sm:px-6 py-2 sm:py-3 rounded-xl border border-gray-700">
                       <Clock className="w-4 h-4 text-primary" />
                       <span className="text-white font-semibold text-xs sm:text-sm font-mono">{recipe.cookingTime}</span>
@@ -314,8 +314,8 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
           {/* Content Grid */}
           <div className="grid lg:grid-cols-3 gap-4 sm:gap-8 pt-6 sm:pt-10">
             {/* Ingredients */}
-            <div className="lg:col-span-1 order-2 lg:order-1">
-              <div className="bg-gray-800/50 backdrop-blur-xl rounded-2xl border-none border-gray-700 p-4 sm:p-6 lg:sticky lg:top-32 animate-slide-up card-stack">
+            <div className="lg:col-span-1 order-1">
+              <div className="bg-gray-800/50 backdrop-blur-xl rounded-2xl border-none border-gray-700 p-4 sm:p-6 lg:sticky lg:top-32 animate-slide-up">
                 <div className="flex items-center justify-between mb-4 sm:mb-6">
                   <div className="flex items-center">
                     <div className="w-8 h-8 sm:w-12 sm:h-12 bg-primary/20 rounded-xl flex items-center justify-center mr-2 sm:mr-3 border border-primary/30">
@@ -394,7 +394,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
 
             {/* Instructions */}
             <div className="lg:col-span-2 order-1 lg:order-2">
-              <div className="bg-gray-800/50 backdrop-blur-xl rounded-2xl border-none border-gray-700 p-4 sm:p-6 animate-slide-up card-stack">
+              <div className="bg-gray-800/50 backdrop-blur-xl rounded-2xl border-none border-gray-700 p-4 sm:p-6 animate-slide-up">
                 <div className="flex items-center justify-between mb-4 sm:mb-6">
                   <div className="flex items-center">
                     <div className="w-8 h-8 sm:w-12 sm:h-12 bg-accent/20 rounded-xl flex items-center justify-center mr-2 sm:mr-3 border border-accent/30">
@@ -415,7 +415,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                   {recipe.instructions.map((instruction, index) => (
                     <motion.div
                       key={index}
-                      className={`flex items-start p-3 sm:p-4 rounded-xl cursor-pointer transition-all duration-300 border touch-target ${
+                      className={`flex items-start p-3 sm:p-4 rounded-xl cursor-pointer transition-all duration-300 border-[0.5px] touch-target ${
                         completedSteps.includes(index)
                           ? "bg-accent/20 border-accent/50 shadow-lg shadow-accent/20"
                           : "bg-gray-800/30 hover:bg-gray-700/50 border-gray-600/50 hover:border-gray-500"
@@ -469,7 +469,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                   >
                     <div className="text-gray-900">
                       <motion.div 
-                        className="w-10 h-10 sm:w-16 sm:h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4"
+                        className="size-12 sm:size-16 shadow-2xl shadow-accent/50 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-4"
                       >
                         <CheckCircle className="w-6 h-6 sm:w-10 sm:h-10 text-accent" />
                       </motion.div>
@@ -495,12 +495,11 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                         })
                       }}
                       variant="outline"
-                      className="shadow-2xl font-mono shadow-primary/20 hover:shadow-primary/40 border-primary text-primary bg-primary/10 hover:bg-primary/30 hover:text-white rounded-xl text-xs sm:text-sm px-3 py-2 sm:px-4 sm:py-2"
+                      className="shadow-2xl shadow-primary/50 font-mono hover:shadow-primary/40 border-white/30 hover:border-primary/40 text-white bg-gray-900/50 hover:bg-primary/10 hover:text-primary rounded-xl text-xs sm:text-sm px-3 py-2 sm:px-4 sm:py-2"
                     >
                       <span className="flex items-center space-x-2">
                         <RotateCcw className="w-3 h-3 sm:w-4 sm:h-4" />
-                        <span className="hidden xs:inline">Reset Progress</span>
-                        <span className="xs:hidden">Reset</span>
+                        <span className="">Reset Progress</span>
                       </span>
                     </Button>
                   </div>

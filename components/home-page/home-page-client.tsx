@@ -351,7 +351,7 @@ export default function HomePageClient() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
               variants={gridVariants}
             >
-              {[...Array(6)].map((_, i) => (
+              {[...Array(8)].map((_, i) => (
                 <motion.div
                   key={i}
                   variants={skeletonVariants}
@@ -402,6 +402,9 @@ export default function HomePageClient() {
             <motion.div 
               className="text-center py-16"
               variants={itemVariants}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
             >
               <div className="max-w-md mx-auto">
                 <div className="w-24 h-24 bg-gray-800/50 rounded-full flex items-center justify-center mx-auto mb-6">
