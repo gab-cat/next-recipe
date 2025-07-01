@@ -14,7 +14,7 @@ const useRecipe = (id: string) => {
     queryKey: ['recipe', id],
     queryFn: async () => {
       const response = await fetch(`/api/recipes?id=${id}`, {
-        cache: "force-cache",
+        cache: "default",
       })
       if (!response.ok) {
         throw new Error('Failed to fetch recipe')

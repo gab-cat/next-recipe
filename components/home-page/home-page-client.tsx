@@ -74,7 +74,7 @@ const useRecipes = (searchTerm: string, timeFilter: string) => {
       if (timeFilter) params.append("time", timeFilter)
       
       const response = await fetch(`/api/recipes?${params}`,{
-        cache: "force-cache",
+        cache: "default",
       })
       if (!response.ok) {
         throw new Error('Failed to fetch recipes')
