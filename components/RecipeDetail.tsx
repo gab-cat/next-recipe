@@ -2,8 +2,9 @@
 
 import { useState, useRef, useEffect, useCallback } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { Clock, Users, ChefHat, CheckCircle, Star, ArrowLeft, Play, Sparkles, ArrowUp, BookOpen, Timer, Share2, RotateCcw } from "lucide-react"
+import { Clock, Users, ChefHat, CheckCircle, Star, ArrowLeft, Play, Sparkles, ArrowUp, BookOpen, Timer, Share2, RotateCcw, User } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Recipe } from "@/types/recipe"
@@ -282,11 +283,38 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                   <h1 ref={heroRef} className="font-heading text-4xl sm:text-7xl text-white mb-2 sm:mb-4 leading-tight tracking-tight hover:text-accent transition-all duration-300">
                     {recipe.name}
                   </h1>
-                  <p className="text-sm sm:text-lg text-gray-300 mb-4 sm:mb-8 max-w-2xl font-body">
+                  <p className="text-sm sm:text-lg text-gray-300 mb-4 sm:mb-6 max-w-2xl font-body">
                     A <span className="text-accent font-heading font-bold">premium</span> culinary experience crafted for <span className="text-accent font-heading font-bold">perfection</span>.
                   </p>
                   
                   <motion.div style={{ opacity: badgeOpacity }} className="flex flex-wrap gap-2 sm:gap-4">
+                    {/* Author Information */}
+                    {recipe.author && (
+                      <motion.div style={{ opacity: badgeOpacity }}>
+                        <Link 
+                          href={`/${recipe.author.username}`}
+                          className="inline-flex items-center space-x-3 bg-gray-900/60 backdrop-blur-sm px-4 sm:px-6 py-2 sm:py-3 rounded-xl border border-accent/25 hover:border-accent/50 transition-all duration-300 hover:bg-gray-900/80 group"
+                        >
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-accent/20 rounded-full flex items-center justify-center border border-accent/30 group-hover:bg-accent/30 transition-colors duration-300">
+                            <User className="w-4 h-4 sm:w-5 sm:h-5 text-accent" />
+                          </div>
+                          <div className="text-left">
+                            <p className="text-accent font-bold text-sm sm:text-base font-heading">
+                              <span className="text-gray-200 font-light font-mono">{'>'}</span> {recipe.author.firstName && recipe.author.lastName 
+                                ? `${recipe.author.firstName} ${recipe.author.lastName}` 
+                                : recipe.author.username}
+                            </p>
+                            <p className="text-xs text-gray-200 font-mono">
+                              {new Date(recipe.createdAt).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                              })}
+                            </p>
+                          </div>
+                        </Link>
+                      </motion.div>
+                    )}
                     <div className="flex items-center space-x-2 bg-gray-900/60 backdrop-blur-sm px-3 sm:px-6 py-2 sm:py-3 rounded-xl border border-gray-700">
                       <Clock className="w-4 h-4 text-primary" />
                       <span className="text-white font-semibold text-xs sm:text-sm font-mono">{recipe.cookingTime}</span>
@@ -308,6 +336,7 @@ export default function RecipeDetail({ recipe }: RecipeDetailProps) {
                   </motion.div>
                 </div>
               </motion.div>
+
             </div>
           </motion.div>
 

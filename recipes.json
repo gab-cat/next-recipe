@@ -1,6 +1,7 @@
 [
   {
     "id": "spaghetti-carbonara",
+    "slug": "spaghetti-carbonara",
     "name": "Classic Spaghetti Carbonara",
     "ingredients": [
       "400g spaghetti",
@@ -26,6 +27,7 @@
   },
   {
     "id": "chicken-tikka-masala",
+    "slug": "chicken-tikka-masala",
     "name": "Chicken Tikka Masala",
     "ingredients": [
       "1 lb boneless chicken, cubed",
@@ -55,6 +57,7 @@
   },
   {
     "id": "chocolate-chip-cookies",
+    "slug": "chocolate-chip-cookies",
     "name": "Classic Chocolate Chip Cookies",
     "ingredients": [
       "2¼ cups all-purpose flour",
@@ -83,6 +86,7 @@
   },
   {
     "id": "beef-stir-fry",
+    "slug": "beef-stir-fry",
     "name": "Beef and Vegetable Stir Fry",
     "ingredients": [
       "1 lb beef sirloin, sliced thin",
@@ -112,6 +116,7 @@
   },
   {
     "id": "margherita-pizza",
+    "slug": "margherita-pizza",
     "name": "Margherita Pizza",
     "ingredients": [
       "1 pizza dough ball",
@@ -139,6 +144,7 @@
   },
   {
     "id": "caesar-salad",
+    "slug": "caesar-salad",
     "name": "Classic Caesar Salad",
     "ingredients": [
       "2 heads romaine lettuce, chopped",
@@ -167,6 +173,7 @@
   },
   {
     "id": "salmon-teriyaki",
+    "slug": "salmon-teriyaki",
     "name": "Teriyaki Glazed Salmon",
     "ingredients": [
       "4 salmon fillets",
@@ -196,6 +203,7 @@
   },
   {
     "id": "vegetable-curry",
+    "slug": "vegetable-curry",
     "name": "Mixed Vegetable Curry",
     "ingredients": [
       "2 tbsp coconut oil",
@@ -227,6 +235,7 @@
   },
   {
     "id": "banana-bread",
+    "slug": "banana-bread",
     "name": "Moist Banana Bread",
     "ingredients": [
       "3 ripe bananas, mashed",
@@ -255,6 +264,7 @@
   },
   {
     "id": "chicken-parmesan",
+    "slug": "chicken-parmesan",
     "name": "Chicken Parmesan",
     "ingredients": [
       "4 chicken breasts, pounded thin",
@@ -284,6 +294,7 @@
   },
   {
     "id": "greek-salad",
+    "slug": "greek-salad",
     "name": "Traditional Greek Salad",
     "ingredients": [
       "3 tomatoes, cut in wedges",
@@ -312,6 +323,7 @@
   },
   {
     "id": "beef-tacos",
+    "slug": "beef-tacos",
     "name": "Ground Beef Tacos",
     "ingredients": [
       "1 lb ground beef",
@@ -342,6 +354,7 @@
   },
   {
     "id": "mushroom-risotto",
+    "slug": "mushroom-risotto",
     "name": "Creamy Mushroom Risotto",
     "ingredients": [
       "1½ cups Arborio rice",
@@ -372,6 +385,7 @@
   },
   {
     "id": "apple-pie",
+    "slug": "apple-pie",
     "name": "Classic Apple Pie",
     "ingredients": [
       "2 pie crusts",
@@ -401,6 +415,7 @@
   },
   {
     "id": "pad-thai",
+    "slug": "pad-thai",
     "name": "Traditional Pad Thai",
     "ingredients": [
       "8 oz rice noodles",
@@ -433,6 +448,7 @@
   },
   {
     "id": "meatball-subs",
+    "slug": "meatball-subs",
     "name": "Italian Meatball Subs",
     "ingredients": [
       "1 lb ground beef",
@@ -464,6 +480,7 @@
   },
   {
     "id": "chicken-soup",
+    "slug": "chicken-soup",
     "name": "Homemade Chicken Soup",
     "ingredients": [
       "1 whole chicken",
@@ -494,6 +511,7 @@
   },
   {
     "id": "fish-tacos",
+    "slug": "fish-tacos",
     "name": "Baja Fish Tacos",
     "ingredients": [
       "1 lb white fish fillets",
@@ -526,6 +544,7 @@
   },
   {
     "id": "chocolate-brownies",
+    "slug": "chocolate-brownies",
     "name": "Fudgy Chocolate Brownies",
     "ingredients": [
       "½ cup butter",
@@ -554,6 +573,7 @@
   },
   {
     "id": "quinoa-salad",
+    "slug": "quinoa-salad",
     "name": "Mediterranean Quinoa Salad",
     "ingredients": [
       "1 cup quinoa",

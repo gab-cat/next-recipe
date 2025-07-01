@@ -4,17 +4,17 @@ import { useState, useRef, useEffect } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { useDebounce } from "use-debounce"
 import { useRouter, useSearchParams, usePathname } from "next/navigation"
-import { Search, Filter, ChefHat, ArrowUp, X, Plus, ArrowRight, FunnelX } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { ArrowUp, X, ArrowRight } from "lucide-react"
 import RecipeCard from "@/components/RecipeCard"
 import RecipeCardSkeleton from "@/components/home-page/recipe-card-skeleton"
 import FloatingActionButton from "@/components/ui/floating-action-button"
+import { StickyNavbar } from "@/components/shared/sticky-navbar"
+import { HeroSection } from "@/components/home-page/hero-section"
+import { SearchBar } from "@/components/home-page/search-bar"
+import { Button } from "@/components/ui/button"
 import { showToast } from "@/lib/toast"
 import { Recipe } from "@/types/recipe"
 import { motion, Variants } from "framer-motion"
-import { cn } from "@/lib/utils"
 
 // Animation variants
 const containerVariants: Variants = {
@@ -35,19 +35,7 @@ const itemVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.5,
-      ease: [0.4, 0, 0.2, 1]
-    }
-  }
-}
-
-const heroVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.8,
-      ease: [0.4, 0, 0.2, 1]
+      ease: [0.4, 0, 0.2, 1] as const
     }
   }
 }
@@ -58,7 +46,7 @@ const gridVariants: Variants = {
     opacity: 1,
     transition: {
       duration: 0.3,
-      ease: [0.4, 0, 0.2, 1]
+      ease: [0.4, 0, 0.2, 1] as const
     }
   }
 }
@@ -71,7 +59,7 @@ const skeletonVariants: Variants = {
     scale: 1,
     transition: {
       duration: 0.5,
-      ease: [0.4, 0, 0.2, 1]
+      ease: [0.4, 0, 0.2, 1] as const
     }
   }
 }
@@ -146,6 +134,7 @@ export default function HomePageClient() {
 
     return () => {
       if (heroRef.current) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         observer.unobserve(heroRef.current)
       }
     }
@@ -168,166 +157,29 @@ export default function HomePageClient() {
     })
   }
 
-
-
   return (
     <div className="min-h-screen bg-gray-900">
-      {/* Sticky Navigation - shown when hero is out of view */}
-      <motion.div 
-        className="bg-gray-900/40 backdrop-blur-xl sticky top-0 z-50 transition-all duration-300 border-b border-gray-700/50"
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ 
-          y: isHeroVisible ? -100 : 0,
-          opacity: isHeroVisible ? 0 : 1
-        }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-      >
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <motion.div 
-              className="flex items-center space-x-3"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ 
-                opacity: isHeroVisible ? 0 : 1,
-                x: isHeroVisible ? -20 : 0
-              }}
-              transition={{ duration: 0.3, delay: 0.1 }}
-            >
-              <div className="relative">
-                <div className="w-12 h-12 bg-primary/20 border border-primary/30 rounded-xl flex items-center justify-center">
-                  <ChefHat className="w-7 h-7 text-primary" />
-                </div>
-                <div className="absolute -top-1 -right-1 w-5 h-5 bg-accent rounded-full flex items-center justify-center">
-                  <span className="text-black font-bold text-base">+</span>
-                </div>
-              </div>
-              <span className="text-xl sm:text-2xl font-bold tracking-tight text-white font-heading">Recipe<span className="text-accent">Hub</span></span>
-            </motion.div>
-
-            {/* Compact Search Bar */}
-            <motion.div 
-              className="flex-1 max-w-md mx-6"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ 
-                opacity: isHeroVisible ? 0 : 1,
-                y: isHeroVisible ? -10 : 0
-              }}
-              transition={{ duration: 0.3, delay: 0.2 }}
-            >
-              <div className="relative">
-                <Search className="absolute  left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-                <Input
-                  type="text"
-                  placeholder="Search recipes..."
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  className="pl-10 font-mono text-xs sm:text-sm bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-primary rounded-xl"
-                />
-              </div>
-            </motion.div>
-
-
-          </div>
-        </div>
-      </motion.div>
+      {/* Sticky Navigation with Auth */}
+      <StickyNavbar isVisible={!isHeroVisible}>
+        <SearchBar
+          value={searchInput}
+          onChange={setSearchInput}
+          placeholder="Search recipes..."
+          compact
+        />
+      </StickyNavbar>
 
       <div className="container mx-auto px-4 py-8 sm:py-16">
         {/* Hero Section */}
-        <motion.div
-          ref={heroRef}
-          className="text-center mb-12 sm:mb-16"
-          variants={heroVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.div className="mb-8">
-            <div className="flex items-center justify-center space-x-4 mb-6">
-              <motion.div className="relative">
-                <motion.div 
-                  className="size-24 bg-primary/20 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-primary/30 shadow-lg shadow-primary/20"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                >
-                  <ChefHat className="size-14 text-primary" />
-                </motion.div>
-                <div className="absolute -top-1 -right-1 size-8 bg-accent rounded-full flex items-center justify-center">
-                  <Plus size={20} strokeWidth={3} className="text-black" />
-                </div>
-              </motion.div>
-            </div>
-            
-            <h1 className="text-display text-sm font-heading tracking-tight text-white mb-6 leading-tight">
-              Recipe<span className="text-accent">Hub</span>
-            </h1>
-            <p className="text-subtitle text-gray-300 max-w-2xl mx-auto font-body leading-relaxed">
-              Discover <span className="text-accent font-semibold font-heading">extraordinary flavors</span> and create culinary masterpieces with our premium collection of 
-              <span className="text-accent font-semibold font-heading"> chef-approved recipes</span>.
-            </p>
-          </motion.div>
-
-          {/* Search and Filter Section */}
-          <motion.div
-            className="max-w-4xl mx-auto"
-            variants={itemVariants}
-          >
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <div className="flex-1 relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 z-10" />
-                <Input
-                  type="text"
-                  placeholder="Search by recipe name, ingredient, or cuisine..."
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  className="pl-12 pr-4 py-4 bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 
-                           focus:border-primary rounded-xl backdrop-blur-sm hover:bg-gray-800/70 
-                           transition-all duration-300 touch-target text-xs sm:text-sm font-mono shadow-2xl shadow-primary/20 
-                           hover:shadow-primary/40 focus:shadow-primary/60 hover:border-primary/60 "
-                />
-                {searchInput && (
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setSearchInput("")}
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:bg-gray-700/40 rounded-full hover:text-white touch-target"
-                  >
-                    <X className="w-4 h-4" />
-                  </Button>
-                )}
-              </div>
-              
-              <div className="flex gap-4 font-mono">
-                <Select value={timeFilter} onValueChange={setTimeFilter}>
-                  <SelectTrigger className="w-48 text-xs sm:text-sm font-mono bg-gray-800/50 border-gray-600 text-white rounded-xl backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-300 touch-target shadow-2xl shadow-primary/20 hover:shadow-primary/40 focus:shadow-primary/60 hover:border-primary/60">
-                    <Filter className="w-4 h-4 mr-2 text-gray-400" />
-                    <SelectValue placeholder="Cooking time" className="text-xs sm:text-sm" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-gray-800 text-white rounded-xl border-gray-600 font-mono text-xs sm:text-sm">
-                    <SelectItem className="rounded-xl text-xs sm:text-sm" value="all">All times</SelectItem>
-                    <SelectItem className="rounded-xl text-xs sm:text-sm" value="quick">Quick (under 30 min)</SelectItem>
-                    <SelectItem className="rounded-xl text-xs sm:text-sm" value="medium">Medium (30-60 min)</SelectItem>
-                    <SelectItem className="rounded-xl text-xs sm:text-sm" value="long">Long (60+ min)</SelectItem>
-                  </SelectContent>
-                </Select>
-
-                <Button
-                  variant="outline"
-                  onClick={clearFilters}
-                  disabled={!searchInput && !timeFilter}
-                  className={cn(
-                    "font-mono bg-gray-800/50 text-xs sm:text-sm  hover:text-gray-900 rounded-xl touch-target transition-all duration-300 ",
-                    (!searchInput && !timeFilter) ? "opacity-50 text-gray-400 cursor-not-allowed" : "hover:text-accent/50 text-accent/60 bg-accent/10 hover:bg-accent/20 border-accent/50 shadow-2xl shadow-accent/20 hover:shadow-accent/40 focus:shadow-accent/60 hover:border-accent/60"
-                  )}
-                >
-                  <FunnelX className="w-4 h-4" />
-                  Clear filters
-                </Button>
-              </div>
-            </div>
-
-
-          </motion.div>
-        </motion.div>
+        <div ref={heroRef}>
+          <HeroSection
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+            timeFilter={timeFilter}
+            setTimeFilter={setTimeFilter}
+            clearFilters={clearFilters}
+          />
+        </div>
 
         {/* Results Section */}
         <motion.div
@@ -404,11 +256,11 @@ export default function HomePageClient() {
               variants={itemVariants}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+              transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] as const }}
             >
               <div className="max-w-md mx-auto">
                 <div className="w-24 h-24 bg-gray-800/50 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Search className="w-12 h-12 text-gray-600" />
+                  <X className="w-12 h-12 text-gray-600" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4 font-heading">No recipes found</h3>
                 <p className="text-gray-400 mb-6 font-body text-sm">
